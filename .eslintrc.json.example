@@ -1,0 +1,46 @@
+// what a javascript config would look like
+{
+	"root": true,
+    "env": {
+        "es2021": true
+    },
+    "extends": [
+        "plugin:eslint/recommended",
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["prettier"],
+    "rules": {
+         "prettier/prettier": [
+			"error"
+		],
+    }
+}
+
+
+// what a typscript config would look like
+{
+	"root": true,
+    "env": {
+        "es2021": true
+    },
+    "extends": [
+        "plugin:eslint/recommended",
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+		"prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+			"error"
+		],
+    }
+}
