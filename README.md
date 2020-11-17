@@ -71,7 +71,14 @@ Steps:
 ### dependencies
 
 - when using typescript, ensure that "@typescript-eslint/parser" and "@typescript-eslint/plugin" are installed as dev dependencies in the topmost package.json, and the value of "parser" field is set to "@typescript-eslint/parser" in the eslint config file.
-- Ensure that `eslint-config-prettier` and `` are installed as dev dependencies, for prettier to work.
+- Ensure that `eslint-config-prettier` and `eslint-plugin-prettier` are installed as dev dependencies, for prettier to work.
+
+## What does what
+
+- Eslint vscode extension uses the eslint npm package installed somewhere on your computer (node_modules in the project directory or in the global install directory) to lint the code in vscode.
+- Eslint vscode extension doesn't know how to lint, it uses the eslint npm package to do so.
+- You can lint your code even without eslint vscode extension (by using eslint on the CLI), but to integrate the linting into vscode (formatting on save, showing errors live), you need the extension.
+- Prettier is a code formatter, but we are not using it directly in vscode. Instead we install prettier as a plugin to eslint - which does the same job as the standalone prettier. But this way any error which prettier plugin sees in the format of code are reported as eslint errors. Since we define prettier as the last extension, prettier rules override any previously defined rules (eg. airbnb-base etc), hence eliminating any conflicts.
 
 
 
